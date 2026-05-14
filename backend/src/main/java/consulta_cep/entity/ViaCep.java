@@ -27,7 +27,7 @@ public class ViaCep {
     }
 
     public ViaCep(ViaCepResponseDTO viaCepResponseDTO) {
-        this.cep = viaCepResponseDTO.cep();
+        this.cep = viaCepResponseDTO.cep().replaceAll("[^0-9]", "");
         this.logradouro = viaCepResponseDTO.logradouro();
         this.complemento = viaCepResponseDTO.complemento();
         this.bairro = viaCepResponseDTO.bairro();

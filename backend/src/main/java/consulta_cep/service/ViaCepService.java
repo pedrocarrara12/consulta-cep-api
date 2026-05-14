@@ -17,7 +17,6 @@ public class ViaCepService {
     private final ViaCepRepository viaCepRepository;
     private final ConsultaCepClient client;
 
-
     public ViaCepService(ViaCepRepository viaCepReposity, ConsultaCepClient client) {
         this.viaCepRepository = viaCepReposity;
         this.client = client;
@@ -39,13 +38,15 @@ public class ViaCepService {
         ViaCepRetornoDTO viaCepRetornoDTO = new ViaCepRetornoDTO(viaCepSalvo);
         return viaCepRetornoDTO;
     }
-    public List<ViaCepRetornoDTO> listarHistorico () {
-        List<ViaCep> viaCeps = viaCepRepository.findAll();
-        List<ViaCepRetornoDTO> viaCepRetornoDTOS = viaCeps.stream().map(
-                ViaCepRetornoDTO::new).collect(Collectors.toList());
-        return viaCepRetornoDTOS;
 
+    public List<ViaCepRetornoDTO> listarHistorico() {
+        List<ViaCep> viaCeps = viaCepRepository.findAll();
+        List<ViaCepRetornoDTO> viaCepRetornoDTOS = viaCeps.stream()
+                .map(ViaCepRetornoDTO::new)
+                .collect(Collectors.toList());
+        return viaCepRetornoDTOS;
     }
+
     public void deletarHistoricoPorId(Long id) {
         if (!viaCepRepository.existsById(id)) {
             throw new CepNaoEncontrado("O CEP com o ID informado não foi encontrado.");
@@ -54,7 +55,6 @@ public class ViaCepService {
         viaCepRepository.deleteById(id);
     }
 
-
     private String validarELimparCep(String cep) {
         String cepLimpo = cep.replaceAll("\\D", "");
         if (!cepLimpo.matches("\\d{8}")) {
@@ -62,9 +62,9 @@ public class ViaCepService {
         }
 
         return cepLimpo;
-
-
     }
 
-
+    public void limparHistorico() {
+        viaCepRepository.deleteAll();
+    }
 }

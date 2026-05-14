@@ -8,8 +8,10 @@ import org.springframework.web.client.RestClient;
 public class ConsultaCepClient {
     private final RestClient restClient;
 
-    public ConsultaCepClient(RestClient.Builder builder) {
-        this.restClient = builder.baseUrl("https://viacep.com.br/ws").build();
+    public ConsultaCepClient() {
+        this.restClient = RestClient.builder()
+                .baseUrl("https://viacep.com.br/ws")
+                .build();
     }
     public ViaCepResponseDTO buscarCep(String cep) {
         return restClient

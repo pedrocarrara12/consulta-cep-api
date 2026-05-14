@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consulta CEP</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="panel search-panel" aria-labelledby="page-title">
+        <div class="heading-group">
+          <p class="eyebrow">API ViaCEP</p>
+          <h1 id="page-title">Consulta de CEP</h1>
+          <p class="description">
+            Busque enderecos, salve consultas no historico e gerencie os registros retornados pela API.
+          </p>
+        </div>
+
+        <form class="search-form" id="cep-form">
+          <label for="cep-input">CEP</label>
+          <div class="input-row">
+            <input
+              id="cep-input"
+              name="cep"
+              inputmode="numeric"
+              maxlength="9"
+              placeholder="00000-000"
+              autocomplete="postal-code"
+              required
+            />
+            <button type="submit">Buscar</button>
+          </div>
+          <p class="hint">A API aceita CEP com ou sem hifen.</p>
+        </form>
+
+        <div class="status" id="status" role="status" aria-live="polite"></div>
+      </section>
+
+      <section class="panel result-panel" aria-labelledby="result-title">
+        <div class="section-header">
+          <h2 id="result-title">Resultado</h2>
+        </div>
+        <dl class="address-grid" id="address-result">
+          <div class="empty-state">Nenhuma consulta realizada ainda.</div>
+        </dl>
+      </section>
+
+      <section class="panel history-panel" aria-labelledby="history-title">
+        <div class="section-header">
+          <h2 id="history-title">Historico</h2>
+          <button class="secondary-button" id="clear-history" type="button">Limpar</button>
+        </div>
+        <div class="history-list" id="history-list">
+          <div class="empty-state">O historico aparecera aqui.</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

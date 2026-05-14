@@ -1,0 +1,102 @@
+# =========================
+# Maven / Java
+# =========================
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Mantém o Maven Wrapper versionado
+!.mvn/wrapper/maven-wrapper.jar
+
+# Ignora targets internos, exceto se estiverem dentro de src
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# =========================
+# Spring Boot
+# =========================
+HELP.md
+
+# Logs
+*.log
+logs/
+application.log
+
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+*.env
+
+# Arquivos locais de configuração
+application-local.properties
+application-local.yml
+application-dev-local.properties
+application-dev-local.yml
+
+# =========================
+# IDEs - STS / Eclipse
+# =========================
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+# =========================
+# IDEs - IntelliJ IDEA
+# =========================
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# =========================
+# IDEs - NetBeans
+# =========================
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Docker / Database local
+# =========================
+docker-compose.override.yml
+*.db
+*.sqlite
+*.sqlite3
+
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+
+# =========================
+# Test / Coverage
+# =========================
+coverage/
+*.exec
